@@ -1,0 +1,17 @@
+use-project boost 
+  : "../boost/boost_1_35_0" ;
+
+project
+	: requirements <library>/boost/python//boost_python/<link>shared <threading>multi <include>../SDL/include
+	: build-dir bin/ ;
+
+import python ;
+
+python-extension _examples : examples/examples.cpp examples/bindings.cpp ;
+install examples
+	: _examples
+	: <location>../dist/Pyknic/examples/
+;
+
+
+alias dist : examples ;

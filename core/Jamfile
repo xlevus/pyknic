@@ -1,0 +1,16 @@
+use-project boost 
+  : "../boost/boost_1_35_0" ;
+
+import python ;
+
+project
+	: requirements <library>/boost/python//boost_python/<link>shared <threading>multi <library>/python//python 
+	: build-dir bin/ ;
+
+exe pyknic : main.cpp ;
+
+install dist
+	: pyknic
+	: <location>../dist/
+	: <install-dependencies>on <install-type>EXE <install-type>LIB 
+;

@@ -1,0 +1,6 @@
+project Pyknic
+	: default-build debug
+	: requirements <include>./ 
+;
+
+alias dist_all : core//dist Pyknic//dist ;
